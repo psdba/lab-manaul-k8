@@ -1,0 +1,38 @@
+minikube start --nodes 2 -p sayeedmultinode --driver=docker
+minikube service list -p multinode
+to set default profile
+minikube profile multinode
+# to check the status
+minikube status -p multinode
+
+kubectl get nodes
+
+# to know ip of the pod
+kubectl get pod -o wide
+
+minikube profile list
+
+
+how to deploy application in multi nodes
+=========================================
+
+kubectl apply -f sayeed.yaml
+
+kubectl rollout status deployment/hello
+
+kubectl apply -f sayeed-svc.yaml
+
+kubectl get pods -o wide
+
+minikube service list -p sayeedmultinode
+or
+kubectl get svc
+
+curl http://192.168.67.2:31000
+=======================================
+
+some commands to check control plane health
+
+kubectl get componentstatus
+
+

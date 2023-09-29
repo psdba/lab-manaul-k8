@@ -1,0 +1,97 @@
+hands on activities
+
+pre-requsits
+-------------
+4gb ram
+2 vcpu
+
+60 gb hardd
+
+ software docker installed
+ after installing docker, run this command
+ 
+ syntax:
+ sudo usermod -aG docker $USER
+
+example:
+sudo usermod -aG docker ubuntu
+
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+======================================
+1.installing K8s
+
+https://minikube.sigs.k8s.io/docs/start/
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+
+
+
+
+installing the cubectl:
+sudo apt update
+sudo apt install kubectl
+kubectl version --client
+
+kubectl version
+
+
+kubectl cluster-info
+kubectl get services -n default
+
+then 
+2.enabling web dashboard
+ minikube addons list
+3.
+minikube addons enable dashboard
+4.
+minikube addons enable metrics-server
+minikube dashboard
+
+=========================================================================
+
+deploying from docker hub
+
+
+syntax:
+kubectl create deployment <deployment-name> --image=<docker-hub-image>
+
+example:
+
+kubectl create deployment sayeed --image=devopsmohammed/mobiley:1.0
+
+check the deployment
+kubectl get deployments
+
+exposed the port
+
+syntax
+kubectl expose deployment <deployment-name> --type=NodePort --port=<port> 
+
+example
+kubectl expose deployment sayeed --type=LoadBalancer --port=80
+
+
+
+
+
+
+
+
+
+
+
+how to find dashboard pod
+kubectl get pods -n kubernetes-dashboard
+
+kubectl -n kubernetes-dashboard port-forward kubernetes-dashboard-5c5cfc8747-sfck8 9090:9090
+
+
+kubectl describe pod kubernetes-dashboard-5c5cfc8747-sfck8 -n kubernetes-dashboard
+
+
+
+
+connecting via kubctl
